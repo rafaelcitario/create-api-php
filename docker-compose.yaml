@@ -1,0 +1,16 @@
+# Use root/example as user/password credentials
+# command to connect: docker exec -it <container-name> mysql -u<user-database> -p<user-password-database> <database-name>
+# or wrap this command in two lines: docker exec -it <container-name> bash
+# mysql -u<user-database> -p<user-password-database> <database-name>
+
+services:
+  mysql:
+    image: mysql:9.1.0
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: useroot
+      MYSQL_USER: api_user
+      MYSQL_PASSWORD: api_password
+      MYSQL_DATABASE: api_example
+
